@@ -3,9 +3,11 @@
 const { error } = require('console');
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const PORT = 3000;
 
 // Middleware to parse JSON bodies
+app.use(cors());
 app.use(express.json());
 
 // In-memory user data
@@ -55,7 +57,7 @@ app.get('/users/:id', (req, res) =>{
 // POST create user with address
 app.post('/users', (req, res) => {
     const { name, username, email, address, phone, website, company } = req.body;
-    if (!name || !username || !email || !address || !phone || !website || !company) {
+    if (!name || !username ) {
         return res.status(400).json({ error: 'Missing required fields'});
     }
 

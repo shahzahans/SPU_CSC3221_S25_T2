@@ -1,0 +1,13 @@
+# Ignore all JSON files (optional, depends on your setup)
+*.json
+
+# Ignore specific JSON file
+mydata.json
+
+# Ignore node_modules (for JS/Node projects)
+node_modules/
+
+# Ignore Python virtual environment (for Python projects)
+venv/
+__pycache__/
+*.pyc
