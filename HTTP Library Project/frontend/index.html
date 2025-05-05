@@ -8,89 +8,128 @@
 </head>
 <body>
     <h1>Create User</h1>
+    <!-- Form to create a new user -->
     <form id="userForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" required>
+      <fieldset>
+        <legend>Basic Info</legend>
+        <div class="form-field">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+        </div>
 
-        <label for="username">Username:</label>
-        <input type="text" id="username" required>
+        <div class="form-field">
+          <label for="username">Username:</label>
+          <input type="text" id="username" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email:</label>
+          <input type="email" id="email">
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone">
+        </div>
+        <div class="form-field">
+          <label for="website">Website:</label>
+          <input type="text" id="website">
+        </div>
+      </fieldset>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email">
+      <fieldset>
+        <legend>Address</legend>
+        <div class="form-field">
+          <label for="street">Street:</label>
+          <input type="text" id="street">
+        </div>
+        <div class="form-field">
+          <label for="suite">Suite:</label>
+          <input type="text" id="suite">
+        </div>
+        <div class="form-field">
+          <label for="city">City:</label>
+          <input type="text" id="city">
+        </div>
+        <div class="form-field">
+          <label for="zipcode">Zipcode:</label>
+          <input type="text" id="zipcode">
+        </div>
+        <div class="form-field">
+          <label for="lat">Latitude:</label>
+          <input type="text" id="lat">
+        </div>
+        <div class="form-field">
+          <label for="lng">Longitude:</label>
+          <input type="text" id="lng">
+        </div>
+      </fieldset>
 
-        <label for="phone">Phone:</label>
-        <input type="text" id="phone">
+      <fieldset>
+        <legend>Company Info</legend>
+        <div class="form-field">
+          <label for="companyName">Company Name:</label>
+          <input type="text" id="companyName">
+        </div>
+        <div class="form-field">
+          <label for="catchPhrase">Catch Phrase:</label>
+          <input type="text" id="catchPhrase">
+        </div>
+        <div class="form-field">
+          <label for="bs">BS:</label>
+          <input type="text" id="bs">
+        </div>
+      </fieldset>
 
-        <label for="website">Website:</label>
-        <input type="text" id="website">
-
-        <label for="street">Street:</label>
-        <input type="text" id="street">
-
-        <label for="suite">Suite:</label>
-        <input type="text" id="suite">
-
-        <label for="city">City:</label>
-        <input type="text" id="city">
-
-        <label for="zipcode">Zipcode:</label>
-        <input type="text" id="zipcode">
-
-        <label for="lat">Latitude:</label>
-        <input type="text" id="lat">
-
-        <label for="lng">Longitude:</label>
-        <input type="text" id="lng">
-
-        <label for="companyName">Company Name:</label>
-        <input type="text" id="companyName">
-
-        <label for="catchPhrase">Catch Phrase:</label>
-        <input type="text" id="catchPhrase">
-
-        <label for="bs">BS:</label>
-        <input type="text" id="bs">
-
-        <button type="submit">Submit</button>
+      <button id="submit" type="submit" style =margin-top:10px;>Submit</button>
     </form>
 
+    <!-- Display list of all users -->
     <h2>All Users</h2>
     <ul id="userList"></ul>
 
-    <div id="userModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:white; border:1px solid #ccc; padding:20px; z-index:1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); max-width: 500px; overflow-y: auto; max-height: 80vh;">
-    <button id="closeModal" style="float:right;">X</button>
-    <form id="userEditForm">
-      <label>Name: <input type="text" id="modalName" readonly></label>
-      <label>Username: <input type="text" id="modalUsername" readonly></label>
-      <label>Email: <input type="text" id="modalEmail" readonly></label>
-      <label>Phone: <input type="text" id="modalPhone" readonly></label>
-      <label>Website: <input type="text" id="modalWebsite" readonly></label>
-      <fieldset>
-        <legend>Address:</legend>
-        <label>Street: <input type="text" id="modalStreet" readonly></label>
-        <label>Suite: <input type="text" id="modalSuite" readonly></label>
-        <label>City: <input type="text" id="modalCity" readonly></label>
-        <label>Zipcode: <input type="text" id="modalZipcode" readonly></label>
-        <label>Lat: <input type="text" id="modalLat" readonly></label>
-        <label>Lng: <input type="text" id="modalLng" readonly></label>
-      </fieldset>
-      <fieldset>
-        <legend>Company:</legend>
-        <label>Name: <input type="text" id="modalCompanyName" readonly></label>
-        <label>Catch Phrase: <input type="text" id="modalCatchPhrase" readonly></label>
-        <label>BS: <input type="text" id="modalBS" readonly></label>
-      </fieldset>
-    </form>
-    <button id="editUser">Edit</button>
-    <button id="deleteUser">Delete</button>
-  </div>
-  <div id="modalBackdrop" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3); z-index:999;"></div>
+    <!-- Modal for viewing and editing a selected user -->
+    <div id="userModal" 
+    style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; border:1px solid #ccc; padding:10px; z-index:1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); max-width: 520px; overflow-y: auto; max-height: 80vh;">
+      <div style="display:flex; justify-content:flex-end;">
+        <button id="closeModal" style="background:none; border:none; font-size:1.2em; cursor:pointer;">X</button>
+      </div>
+      <div style="padding: 20px;">
+
+        <form id="userEditForm">
+          <label>Name: <input type="text" id="modalName" readonly></label><br>
+          <label>Username: <input type="text" id="modalUsername" readonly></label><br>
+          <label>Email: <input type="text" id="modalEmail" readonly></label><br>
+          <label>Phone: <input type="text" id="modalPhone" readonly></label><br>
+          <label>Website: <input type="text" id="modalWebsite" readonly></label><br>
+          <fieldset>
+            <legend>Address:</legend>
+            <label>Street: <input type="text" id="modalStreet" readonly></label><br>
+            <label>Suite: <input type="text" id="modalSuite" readonly></label><br>
+            <label>City: <input type="text" id="modalCity" readonly></label><br>
+            <label>Zipcode: <input type="text" id="modalZipcode" readonly></label><br>
+            <label>Lat: <input type="text" id="modalLat" readonly></label><br>
+            <label>Lng: <input type="text" id="modalLng" readonly></label><br>
+          </fieldset>
+          <fieldset>
+            <legend>Company:</legend>
+            <label>Name: <input type="text" id="modalCompanyName" readonly></label><br>
+            <label>Catch Phrase: <input type="text" id="modalCatchPhrase" readonly></label><br>
+            <label>BS: <input type="text" id="modalBS" readonly></label><br>
+          </fieldset>
+        </form>
+        <div style="display:flex; gap:20px; margin-top:10px;">
+          <button id="editUser">Edit</button>
+          <button id="deleteUser">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div id="modalBackdrop" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3); z-index:999;"></div>
   
     <script>
         const form = document.getElementById('userForm');
         const userList = document.getElementById('userList');
         let currentUserId = null;
 
+        // Fetch all users from the server and render them in the list
         async function fetchUsers() {
             try {
                 const res = await fetch('http://localhost:3000/users');
@@ -139,6 +178,7 @@
             }
         }
 
+        // Handles empty fields by setting them to 'N/A' if not provided
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const valOrNA = (id) => {
@@ -193,6 +233,7 @@
 
         fetchUsers();
 
+        // Close modal 
         document.getElementById('closeModal').addEventListener('click', () => {
             document.getElementById('userModal').style.display = 'none';
             document.getElementById('modalBackdrop').style.display = 'none';
@@ -202,6 +243,7 @@
             document.getElementById('modalBackdrop').style.display = 'none';
         });
 
+        // Handle user deletion
         document.getElementById('deleteUser').addEventListener('click', async () => {
             if (!currentUserId) return;
             if (confirm('Are you sure you want to delete this user?')) {
@@ -214,6 +256,7 @@
 
         let isEditMode = false;
 
+        // Toggle between edit and save mode for the selected user
         document.getElementById('editUser').addEventListener('click', async () => {
             const formFields = document.querySelectorAll('#userEditForm input');
 
