@@ -4,3 +4,4 @@
 - Shadman Shahzahan
 - Conner Ngadisastra
 - Manxi Muhirwa
+- Julia Lavigne
