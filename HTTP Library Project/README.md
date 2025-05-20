@@ -43,7 +43,7 @@ HTTP Library Project/
 4. Click **Send Request** to test the method.
 5. View the response summary and raw JSON below.
 
-## 🏆 Assignment Requirements Met
+## Assignment Requirements Met
 
 | Requirement                             | Status  |
 |----------------------------------------|---------|
