@@ -60,7 +60,7 @@ HTTP Library Project/
 
 ## Team Members
 
-- **Shadman Shahzahan** – Backend & logic
+- **Shadman Shahzahan** – Front End & logic
 - **Manxi** – Frontend design & structure
 - **Conner** – Frontend design & Form layout & testing
 
