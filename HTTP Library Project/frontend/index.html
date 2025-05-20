@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTTP Library Tester</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-area">
+        <h2>HTTP Library Tester</h2>
+
+        <!-- Input for the target route -->
+        <section>
+            <label for="route">Route:</label>
+            <input 
+                type="url" 
+                id="route" 
+                value="https://jsonplaceholder.typicode.com/users" 
+                class="full-width" 
+                required>
+        </section>
+
+        <!-- Radio buttons to select the request method -->
+        <section>
+            <legend>Select HTTP Method:</legend>
+            <label><input type="radio" name="HTTPtype" value="get" checked> GET</label>
+            <label><input type="radio" name="HTTPtype" value="post"> POST</label>
+            <label><input type="radio" name="HTTPtype" value="put"> PUT</label>
+            <label><input type="radio" name="HTTPtype" value="patch"> PATCH</label>
+            <label><input type="radio" name="HTTPtype" value="delete"> DELETE</label>
+        </section>
+
+        <!-- Button to trigger the request -->
+        <button id="SendReq" class="primary-button">Send Request</button>
+
+        <hr>
+
+        <!-- Response section: summary and raw JSON -->
+        <section>
+            <p><strong>Response Summary:</strong></p>
+            <div id="response"></div>
+        </section>
+
+        <section>
+            <p><strong>Raw JSON:</strong></p>
+            <pre id="jsonOutput" class="preset"></pre>
+        </section>
+    </div>
+
+    <!-- Scripts: first the library, then the app logic -->
+    <script src="CoreHTTP.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
