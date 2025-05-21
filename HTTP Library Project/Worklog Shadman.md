@@ -2,7 +2,7 @@
 
 **Date**: April 27,2025
 
-## Task: Backend Development
+## Task: Front-End & Core Development
 
 ### Description:
 - Reviewed project requirements and rubric
