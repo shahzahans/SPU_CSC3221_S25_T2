@@ -1,8 +1,7 @@
 # Worklog Entry
 **Date**: Jun 1st, 2025
 
-## Task: Building and Testing the Backend (Node.js + Express)
+## Task: Building index.html and UI Layout
 
 ### Description
-- Set up an Express server in server.js to serve static files and handle REST API endpoints. Implemented routes for /users, including GET (all and by ID), POST, PUT, PATCH, and DELETE. Added fs.promises to read and write to data.json. Ensured IDs are dynamically assigned and renumbered after deletes.
-
+- Started building the frontend structure for the API tester. Designed index.html with labeled input fields grouped by user, address, geo, and company sections. Implemented radio buttons to toggle between request types (GET, POST, PUT, PATCH, DELETE). Ensured all inputs were styled using style.css for readability and usability.
