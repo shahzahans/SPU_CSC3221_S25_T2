@@ -10,4 +10,4 @@ MONGODB_URI ="your key"
    npm install
 3. **To open local host**
     ```bash
-    npx node server.js
+    npm node server.js
