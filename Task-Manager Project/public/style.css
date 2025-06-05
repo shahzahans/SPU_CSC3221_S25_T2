@@ -288,11 +288,19 @@ body {
 }
 
 .fieldGroup {
+    display: flex;
+    flex-direction: column;
     padding: 15px;
     border: 1px solid rgb(3, 11, 237);
     border-radius: 5px;
     margin: 10px 0;
     font-weight: bold;
+}
+
+.fieldGroupRow {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
 }
 
 label {

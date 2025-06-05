@@ -26,17 +26,22 @@
         </div>
 
         <div class="fieldGroup">
-            <label for="title">Task Name</label>
-            <input class="nameinput" type="text" id="title">
-
-            <label for="description">Description</label>
-            <input class="descinput" type="text" id="description">
-
-            <label for="dueDate">Due Date</label>
-            <input class="dueinput" type="date" id="dueDate">
-
-            <label for="completed">Completed</label>
-            <input class="completeinput" type="checkbox" id="completed">
+            <div class="fieldGroupRow">
+                <label for="title">Task Name</label>
+                <input class="nameinput" type="text" id="title">
+            </div>
+            <div class="fieldGroupRow">
+                <label for="description">Description</label>
+                <input class="descinput" type="text" id="description">
+            </div>
+            <div class="fieldGroupRow">
+                <label for="dueDate">Due Date</label>
+                <input class="dueinput" type="date" id="dueDate">
+            </div>
+            <div class="fieldGroupRow">
+                <label for="completed">Completed</label>
+                <input class="completeinput" type="checkbox" id="completed">
+            </div>
         </div>
 
 
@@ -50,6 +55,8 @@
     <div id="task-list">
         
     </div>
+
+    <!-- <textarea id="response" readonly></textarea> -->
 
     <script type="module" src="script.js"></script>
 </body>
