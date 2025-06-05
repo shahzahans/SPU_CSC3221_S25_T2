@@ -48,9 +48,28 @@ h3 {
     background-color: #D7CFEA;
 }
 
-.task:hover {
+.task-completed {
+    text-align: left;
+    text-decoration:line-through;
+    margin-bottom: 10px;
+    color: gray;
+    padding: 10px 40px;
+    border: 3px solid gray;
+    border-radius: 15px;
+    box-shadow: -3px 3px black;
+    transition: 0.2s;
+    background-color: lightgray;
+}
+
+.task-completed h3 {
+    color: gray;
+}
+
+.task:hover, .task-completed:hover {
     transform: scale(1.02);
 }
+
+
 
 .IDlabel,
 .namelabel,

@@ -40,10 +40,9 @@ export class ApiClient {
             this.taskList.innerHTML = ''; // Clear previous task list
             data.forEach((task, i) => {
                 const taskDiv = document.createElement("div"); // Create task container
-                taskDiv.className = "task"; // Assign class
+                taskDiv.className = task.completed ? "task-completed" : "task"; // Assign class
                 taskDiv.innerHTML = `
                     <h3><strong>${i + 1}. ${task.title}</strong></h3>
-                    <p><strong>Completed:</strong> ${task.completed ? "Yes" : "No"}</p>
                     <p><strong>Created At:</strong> ${new Date(task.createdAt).toLocaleString()}</p>
                     <p><strong>Due Date:</strong> ${task.dueDate ? new Date(task.dueDate).toLocaleDateString() : "Not set"}</p>
                     <p><strong>Description:</strong> ${task.description || "None"}</p>
@@ -65,10 +64,9 @@ export class ApiClient {
 
             this.taskList.innerHTML = ''; // Clear task list
             const taskDiv = document.createElement("div"); // Create task display
-            taskDiv.className = "task"; // Assign class
+            taskDiv.className = task.completed ? "task-completed" : "task"; // Assign class
             taskDiv.innerHTML = `
                 <h3><strong>${task.title}</strong></h3>
-                <p><strong>Completed:</strong> ${task.completed ? "Yes" : "No"}</p>
                 <p><strong>Created At:</strong> ${new Date(task.createdAt).toLocaleString()}</p>
                 <p><strong>Due Date:</strong> ${task.dueDate || "Not set"}</p>
                 <p><strong>Description:</strong> ${task.description || "None"}</p>
@@ -99,10 +97,9 @@ export class ApiClient {
 
             this.taskList.innerHTML = ''; // Clear old task list
             const taskDiv = document.createElement("div"); // Create new task display
-            taskDiv.className = "task";
+            taskDiv.className = task.completed ? "task-completed" : "task";
             taskDiv.innerHTML = `
                 <h3><strong>${task.title}</strong></h3>
-                <p><strong>Completed:</strong> ${task.completed ? "Yes" : "No"}</p>
                 <p><strong>Created At:</strong> ${new Date(task.createdAt).toLocaleString()}</p>
                 <p><strong>Due Date:</strong> ${task.dueDate ? new Date(task.dueDate).toLocaleDateString() : "Not set"}</p>
                 <p><strong>Description:</strong> ${task.description || "None"}</p>
