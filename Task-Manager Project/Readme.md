@@ -1,75 +1,76 @@
 # Task Manager Web App
 
-A simple full-stack Task Manager application that allows users to **create**, **read**, **update**, and **delete** tasks. Built with **Node.js**, **Express**, **MongoDB Atlas**, and **vanilla JavaScript** on the frontend.
+A simple yet powerful **full-stack Task Manager** that enables users to perform full **CRUD** operations on tasks. It uses a **Node.js** backend with **Express** and **MongoDB Atlas**, and a lightweight **vanilla JavaScript frontend** for seamless user interaction.
 
-## Features
-
-- Add tasks with:
-  - Title
-  - Description
-  - Due date
-  - Completion status
-- View all tasks or search by title
-- Update any field by task name
-- Delete one task by name or all tasks at once
-- Modern, responsive UI
+> **Demo use case:** Netcentric Computing coursework, designed for clarity and educational purposes.
 
 ---
 
-## Technologies Used
+## Features
+
+- **Create** tasks with:
+  - Title
+  - Description
+  - Due date
+  - Completion status (true/false)
+- **Read** all tasks or search by title
+- **Update** tasks (any field) using the task name as identifier
+- **Delete** one task by name or **wipe all tasks**
+- Clean and **responsive UI** for all screen sizes
+- Minimal frontend with **zero dependencies**
+
+---
+
+## 🧠 Technologies Used
 
 ### Frontend
-- HTML5, CSS3 (custom styling)
-- JavaScript (ES6 modules)
+- HTML5 & CSS3 (custom styles)
+- JavaScript (ES6+, `fetch` API)
 
 ### Backend
 - Node.js
 - Express.js
-- MongoDB Atlas (with Mongoose ODM)
-- CORS + dotenv
+- MongoDB Atlas (via Mongoose)
+- CORS + dotenv for config
+- Modular structure with separation of concerns (controllers, routing, config)
 
 ---
 
-## Project Structure
+##  Project Structure
 
-```
+## Technologies Used
 Task-Manager-Project/
-├── public/
-│   ├── index.html
-│   ├── style.css
-│   ├── apiClient.js
-│   └── script.js
+├── public/                # Frontend files served statically
+│   ├── index.html         # Main UI
+│   ├── style.css          # Basic styling
+│   ├── apiClient.js       # Functions to call backend API
+│   └── script.js          # UI logic, form handling
 ├── controllers/
-│   └── taskController.js
-├── connect.js
-├── server.js
-├── Task.js
-├── tasks.js
-├── .env
+│   └── taskController.js  # Task business logic
+├── connect.js             # MongoDB connection logic
+├── server.js              # Main server setup
+├── Task.js                # Mongoose task schema/model
+├── tasks.js               # Routes for /api/tasks
+├── .env                   # Environment config (NOT tracked by Git)
 ├── package.json
 └── README.md
-```
 
 ---
----
 
-## Setup & Installation
+## ⚙️ Setup & Installation
 
 ### Prerequisites
 
-Make sure you have:
-
-- Node.js (v18 or later)
+- Node.js v18+
 - MongoDB Atlas account
-- An `.env` file (or hardcoded URI)
+- Optional: VS Code or any code editor
 
----
-
-### 1. Clone the repo
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/task-manager.git
 cd task-manager
+
 ```
 
 ### 2. Install dependencies

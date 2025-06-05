@@ -11,12 +11,12 @@ document.getElementById("delete").addEventListener("change", () => {
     apiClient.get(); // Show all tasks when DELETE is selected
 });
 
-
+// Event listener for the main submit button
 document.getElementById("myButton").addEventListener("click", (e) => {
     e.preventDefault();
     getRequestType();
 });
-
+// Event listener for the "Delete All" button
 document.getElementById("deleteAllButton").addEventListener("click", () => {
     apiClient.deleteAll();
     showStatus("🗑️ All tasks deleted!", "red");
