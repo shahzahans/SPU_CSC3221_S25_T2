@@ -32,14 +32,15 @@ A simple full-stack Task Manager application that allows users to **create**, **
 
 ## Project Structure
 
+```
 Task-Manager-Project/
 ├── public/
-│ ├── index.html
-│ ├── style.css
-│ ├── apiClient.js
-│ └── script.js
+│   ├── index.html
+│   ├── style.css
+│   ├── apiClient.js
+│   └── script.js
 ├── controllers/
-│ └── taskController.js
+│   └── taskController.js
 ├── connect.js
 ├── server.js
 ├── Task.js
@@ -47,8 +48,9 @@ Task-Manager-Project/
 ├── .env
 ├── package.json
 └── README.md
+```
 
-
+---
 ---
 
 ## Setup & Installation
