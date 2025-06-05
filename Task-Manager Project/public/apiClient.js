@@ -3,6 +3,7 @@ export class ApiClient {
     constructor(baseUrl) {
         this.baseUrl = baseUrl;
         this.queryResults = document.getElementById("response");
+        this.taskList = document.getElementById("task-list");
     }
 
     async deleteByTitle(title) {
@@ -15,6 +16,7 @@ export class ApiClient {
             console.error('DELETE', error);
             this.queryResults.value = error.message;
         }
+        this.get();
     }
 
     async deleteAll() {
@@ -27,6 +29,7 @@ export class ApiClient {
             console.error('DELETE ALL', error);
             this.queryResults.value = error.message;
         }
+        this.get();
     }
 
     async get() {
@@ -34,9 +37,43 @@ export class ApiClient {
             const res = await fetch(this.baseUrl);
             if (!res.ok) throw new Error('HTTP GET failed');
             const json = await res.json();
-            this.queryResults.value = Array.isArray(json)
-                ? json.map((task, i) => this.formatTask(task, i)).join('\n\n')
-                : this.formatTask(json);
+
+            const newTask = document.createElement("div");
+            newTask.className = "task"
+
+            this.taskList.innerHTML = '';
+
+            if (Array.isArray(json)) {
+                json.forEach((task, i) => {
+                    const taskDiv = document.createElement("div");
+                    taskDiv.className = "task";
+
+                    taskDiv.innerHTML = `
+                        <h3><strong>${i + 1}. ${task.title}</strong></h3>
+                        <p><strong>Completed:</strong> ${task.completed ? "Yes" : "No"}</p>
+                        <p><strong>Created At:</strong> ${new Date(task.createdAt).toLocaleString()}</p>
+                        <p><strong>Due Date:</strong> ${task.dueDate || "Not set"}</p>
+                        <p><strong>Description:</strong> ${task.description || "None"}</p>
+                        <hr>
+                    `;
+
+                    this.taskList.appendChild(taskDiv);
+                });
+            } else {
+                const taskDiv = document.createElement("div");
+                taskDiv.className = "task";
+
+                taskDiv.innerHTML = `
+                    <p><strong>Task Name:</strong> ${json.title}</p>
+                    <p><strong>Completed:</strong> ${json.completed ? "Yes" : "No"}</p>
+                    <p><strong>Created At:</strong> ${new Date(json.createdAt).toLocaleString()}</p>
+                    <p><strong>Due Date:</strong> ${json.dueDate || "Not set"}</p>
+                    <p><strong>Description:</strong> ${json.description || "None"}</p>
+                    <hr>
+                `;
+
+                this.taskList.appendChild(taskDiv);
+            }
         } catch (error) {
             console.error('GET', error);
             this.queryResults.value = error.message;
@@ -66,6 +103,7 @@ export class ApiClient {
         }
 
         document.querySelectorAll('.fieldGroup input').forEach(input => input.value = '');
+        this.get();
     }
 
     formatTask(task, index = null) {

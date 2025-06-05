@@ -1,17 +1,51 @@
-body{
-    background-color: rgba(51, 51, 137, 0.086);
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F0E6;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h1 {
-  color: #7200b0;
+h1, h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    background-color: #8E79A8;
+    color: black;
+    padding: 10px 40px;
+    border: 3px solid black;
+    border-radius: 15px;
+    box-shadow: -3px 3px black;
 }
 
 h3 {
-  color: blue;
+    color: black;
 }
 
 title {
   color:rgb(3, 11, 237);
+}
+
+#task-list {
+    width: 50vw;
+}
+
+.task {
+    text-align: left;
+    margin-bottom: 10px;
+    color: black;
+    padding: 10px 40px;
+    border: 3px solid black;
+    border-radius: 15px;
+    box-shadow: -3px 3px black;
+    transition: 0.2s;
+    background-color: #D7CFEA;
+}
+
+.task:hover {
+    transform: scale(1.02);
 }
 
 .IDlabel {
@@ -239,6 +273,10 @@ body {
     resize: vertical;
 }
 
+#response {
+    width: 200px;
+}
+
 .radioGroup {
     margin-bottom: 20px;
     padding: 15px;
@@ -269,24 +307,29 @@ textarea {
 } 
 
 button {
-    padding: 10px 20px;            
-    background-color: #007bff;
-    color: white;
+    background-color: #D7CFEA;
+    color: black;
+    font-size: 1.25rem;
     font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    margin-left: 340px;
+    padding: 10px 30px;
+    border: 3px solid black;
+    border-radius: 15px;
+    box-shadow: -3px 3px black;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #8E79A8;
+    transform: scale(1.05);
 }
+
 .buttonGroup {
     display: flex;
     gap: 15px;
     justify-content: center;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .buttonGroup button {
