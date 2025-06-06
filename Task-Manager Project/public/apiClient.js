@@ -2,7 +2,6 @@
 export class ApiClient {
     constructor(baseUrl) {
         this.baseUrl = baseUrl; // Base URL for the API
-        this.queryResults = document.getElementById("response"); // Element to show API response messages
         this.taskList = document.getElementById("task-list"); // Element to render task data
     }
 
@@ -11,11 +10,14 @@ export class ApiClient {
         try {
             const res = await fetch(url, { method: 'DELETE' }); // Send DELETE request
             if (!res.ok) throw new Error('HTTP DELETE failed'); // Throw error if not successful
-            this.queryResults.value = `Deleted task titled "${title}"`; // Show success message
         } catch (error) {
             console.error('DELETE', error); // Log error to console
-            this.queryResults.value = error.message; // Show error in UI
         }
+        // Clear form fields
+        document.querySelector('.nameinput').value = '';
+        document.querySelector('.descinput').value = '';
+        document.querySelector('.dueinput').value = '';
+        document.querySelector('.completeinput').checked = false;   
         this.get(); // Refresh the task list
     }
 
@@ -24,10 +26,8 @@ export class ApiClient {
             const res = await fetch(this.baseUrl, { method: 'DELETE' }); // Send DELETE request to remove all
             if (!res.ok) throw new Error('Failed to delete all tasks'); // Handle error
             const json = await res.json(); // Parse response
-            this.queryResults.value = `🗑️ Deleted ${json.deletedCount} task(s).`; // Display how many tasks were deleted
         } catch (error) {
             console.error('DELETE ALL', error); // Log error
-            this.queryResults.value = error.message; // Display error
         }
         this.get(); // Refresh list
     }
@@ -51,8 +51,8 @@ export class ApiClient {
                 this.taskList.appendChild(taskDiv); // Add task to DOM
             });
 
-        } catch (err) {
-            console.error('GET error:', err); // Log fetch error
+        } catch (error) {
+            console.error('GET error:', error); // Log fetch error
         }
     }
 
@@ -74,7 +74,7 @@ export class ApiClient {
             `;
             this.taskList.appendChild(taskDiv); // Display task
         } catch (error) {
-            this.queryResults.value = error.message; // Show error message
+            console.error(`${method} error:`, error); // Log method-specific error
         }
     }
 
@@ -113,8 +113,8 @@ export class ApiClient {
             document.querySelector('.dueinput').value = '';
             document.querySelector('.completeinput').checked = false;
 
-        } catch (err) {
-            console.error(`${method} error:`, err); // Log method-specific error
+        } catch (error) {
+            console.error(`${method} error:`, error); // Log method-specific error
         }
     }
 
